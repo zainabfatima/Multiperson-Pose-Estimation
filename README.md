@@ -1,5 +1,22 @@
-# Multiperson-pose-estimation
-## Multiperson pose estimation using YOLOv8 and Mediapipe
+# Multiperson Pose Estimation using YOLOv8 & Mediapipe 🤖🕺
 
+This project combines YOLOv8 (for people detection) and Mediapipe (for pose estimation) to detect and visualize the poses of **multiple people** in a video.
 
-This notebook uses YOLOv8 for people detection and then utilizes mediapipe for pose estimation. The process works by first detecting all people in a video frame, and then sending all those detected persons, one by one, to Mediapipe for pose estimation. The resulting output is then overlayed on each frame, resulting in a video with multiperson pose estimation. Since mediapipe only does pose estimation for single person, therefore we utilized YOLOv8 as a preprocessing step to acheive multiperson pose estimation.
+---
+
+## 🎯 Project Overview
+
+Since **Mediapipe Pose** only supports **single-person detection**, this project:
+- Uses **YOLOv8** to detect multiple people
+- Crops each detected person out of the frame
+- Applies **Mediapipe Pose** on each person
+- Reconstructs the annotated full-frame video with all pose estimations
+
+---
+
+## 🧰 Requirements
+
+Install dependencies:
+
+```bash
+pip install mediapipe ultralytics opencv-python numpy pandas
